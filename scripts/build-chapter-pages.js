@@ -7,7 +7,7 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt
 const xml = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
 const imageUrl = u => {
   u = String(u || '');
-  return /^https?:\/\//i.test(u) ? u : 'https://manganewworld.github.io/' + u.replace(/^\/+/, '');
+  return /^https?:\/\//i.test(u) ? u : 'https://newwaymanga.github.io/' + u.replace(/^\/+/, '');
 };
 const dateOnly = value => {
   if (!value) return '';
@@ -42,7 +42,7 @@ fs.rmSync(path.join(root, 'chapters'), { recursive: true, force: true });
 for (const c of chapters) {
   const slug = String(c.slug).trim();
   const title = String(c.title || ('Chapter ' + (c.number ?? ''))).trim();
-  const canonical = 'https://manganewworld.github.io/chapters/' + encodeURIComponent(slug) + '/';
+  const canonical = 'https://newwaymanga.github.io/chapters/' + encodeURIComponent(slug) + '/';
   const imgs = (Array.isArray(c.pages) ? c.pages : [])
     .map(p => typeof p === 'string' ? p : (p?.url || p?.path || p?.src || ''))
     .filter(Boolean)
@@ -59,7 +59,7 @@ for (const c of chapters) {
     description,
     url: canonical,
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
-    publisher: { '@type': 'Organization', name: 'MangaGoAtlas', url: 'https://manganewworld.github.io/' }
+    publisher: { '@type': 'Organization', name: 'MangaGoAtlas', url: 'https://newwaymanga.github.io/' }
   };
   if (firstImage) ld.image = [firstImage];
   const published = dateOnly(c.createdAt || c.created_at || c.publishedAt || c.published_at);
@@ -74,7 +74,7 @@ for (const c of chapters) {
   fs.writeFileSync(path.join(dir, 'index.html'), html);
 }
 
-const base = 'https://manganewworld.github.io';
+const base = 'https://newwaymanga.github.io';
 const fixed = [
   base + '/',
   base + '/latest-chapters.html',
