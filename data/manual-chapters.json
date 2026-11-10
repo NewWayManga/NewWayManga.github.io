@@ -162,6 +162,17 @@
       ],
       "createdAt": "2026-11-10T15:44:31.835Z",
       "updatedAt": "2026-11-10T15:49:22.259Z"
+    },
+    {
+      "id": "manual-1794326084983",
+      "mangaId": "one-piece",
+      "number": 1199,
+      "title": "ワンピース raw ( One Piece raw ) 第1199話 | JAP",
+      "slug": "one-piece-raw-1199",
+      "country": "JP",
+      "pages": [],
+      "createdAt": "2026-11-10T15:54:40.848Z",
+      "updatedAt": "2026-11-10T15:54:40.848Z"
     }
   ]
 }
